@@ -1,10 +1,9 @@
 SELECT
-    e1.name
+    e1.name as name
 FROM 
-    Employee e1
-JOIN (SELECT managerID, count(managerID) as reportcount
-    FROM Employee 
-    GROUP  BY managerID
-    HAVING count(*) >= 5) e2
-ON
-    e1.id = e2.managerId;
+    Employee e1 
+    JOIN 
+        Employee e2
+    ON e1.id = e2.managerId
+GROUP BY e2.managerID
+HAVING count(e2.managerId) >=5
