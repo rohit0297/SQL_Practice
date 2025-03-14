@@ -1,6 +1,6 @@
 # Write your MySQL query statement below
 SELECT 
-    a.num AS ConsecutiveNums
+    DISTINCT(a.num) AS ConsecutiveNums
 FROM
     Logs a
     JOIN
